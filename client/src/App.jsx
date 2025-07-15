@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import axios from "axios";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,7 +22,8 @@ function App() {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
+      <Hero />
     </>
   );
 }
