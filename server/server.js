@@ -4,6 +4,9 @@ const Product = require("./models/productModel");
 const productRoute = require("./routes/productRoute");
 const cors = require("cors");
 
+require('dotenv').config();
+
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -19,9 +22,7 @@ app.use(cors(corsOptions));
 app.use("/api/products", productRoute);
 
 mongoose
-  .connect(
-    "mongodb+srv://bezaleelelderoy:X3FPfStZ5NcWSQ4W@backenddb.k8qp2fh.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected to database");
     app.listen(port, () => {
